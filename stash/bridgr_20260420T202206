@@ -1,0 +1,10 @@
+window bridgr 1 :backend 1 :* c2c1,133x36,0,0,4
+window bridgr 2 :frontend 0 : c2c2,133x36,0,0,5
+window bridgr 3 :runner 0 : 5fcf,133x36,0,0{66x36,0,0,6,66x36,67,0[66x18,67,0,7,66x17,67,19,8]}
+window bridgr 4 :server 0 :- c2c6,133x36,0,0,9
+pane bridgr 1 1 :* 0 :/home/bram/go/bridgr-backend 1 nvim 938 0
+pane bridgr 2 0 : 0 :/home/bram/bridgr-frontend 1 nvim 965 0
+pane bridgr 3 0 : 0 :/home/bram/go/bridgr-backend 1 fish 990 0
+pane bridgr 3 0 : 1 :/home/bram/go/human-ai 0 air 1012 1
+pane bridgr 3 0 : 2 :/home/bram/bridgr-frontend 0 bun 1041 0
+pane bridgr 4 0 :- 0 :/home/bram 1 fish 1069 0

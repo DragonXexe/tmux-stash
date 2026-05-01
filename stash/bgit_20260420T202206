@@ -1,0 +1,6 @@
+window bgit 1 :code 1 :* c2be,133x36,0,0,1
+window bgit 2 :runner 0 :- c2bf,133x36,0,0,2
+window bgit 3 :tester 0 : c2c0,133x36,0,0,3
+pane bgit 1 1 :* 0 :/home/bram/bgit 1 nvim 860 0
+pane bgit 2 0 :- 0 :/home/bram/bgit 1 fish 885 0
+pane bgit 3 0 : 0 :/home/bram/bgit/test-project 1 fish 911 0

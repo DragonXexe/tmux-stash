@@ -1,0 +1,21 @@
+pane	bgit	1	1	:*	0	nvim . ~/bgit	:/home/bram/bgit	1	nvim	:nvim .
+pane	bgit	2	0	:-	0	~/bgit	:/home/bram/bgit	1	fish	:
+pane	bgit	3	0	:	0	~/b/test-project	:/home/bram/bgit/test-project	1	fish	:
+pane	bridgr	1	1	:*	0	nvim . ~/g/bridgr-backend	:/home/bram/go/bridgr-backend	1	nvim	:nvim .
+pane	bridgr	2	0	:	0	nvim . ~/bridgr-frontend	:/home/bram/bridgr-frontend	1	nvim	:nvim .
+pane	bridgr	3	0	:	0	~/g/bridgr-backend	:/home/bram/go/bridgr-backend	1	fish	:
+pane	bridgr	3	0	:	1	air ~/g/human-ai	:/home/bram/go/human-ai	0	air	:air
+pane	bridgr	3	0	:	2	bun run dev ~/bridgr-frontend	:/home/bram/bridgr-frontend	0	bun	:bun run dev
+pane	bridgr	4	0	:-	0	~	:/home/bram	1	fish	:
+pane	hat	1	1	:*	0	nvim . ~/h/hat	:/home/bram/heartassisted-therapy/hat	1	nvim	:nvim .
+pane	hat	2	0	:-	0	bun run dev ~/h/hat	:/home/bram/heartassisted-therapy/hat	1	bun	:bun run dev
+window	bgit	1	:code	1	:*	c2be,133x36,0,0,1	off
+window	bgit	2	:runner	0	:-	c2bf,133x36,0,0,2	off
+window	bgit	3	:tester	0	:	c2c0,133x36,0,0,3	off
+window	bridgr	1	:backend	1	:*	c2c1,133x36,0,0,4	off
+window	bridgr	2	:frontend	0	:	c2c2,133x36,0,0,5	off
+window	bridgr	3	:runner	0	:	5fcf,133x36,0,0{66x36,0,0,6,66x36,67,0[66x18,67,0,7,66x17,67,19,8]}	off
+window	bridgr	4	:server	0	:-	c2c6,133x36,0,0,9	off
+window	hat	1	:frontend	1	:*	618f,133x36,0,0,10	off
+window	hat	2	:bun	0	:-	6192,133x36,0,0,13	:
+state	hat	

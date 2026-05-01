@@ -1,0 +1,4 @@
+window hat 1 :frontend 1 :* 618f,133x36,0,0,10
+window hat 2 :bun 0 :- 6190,133x36,0,0,11
+pane hat 1 1 :* 0 :/home/bram/heartassisted-therapy/hat 1 fish 1097 0
+pane hat 2 0 :- 0 :/home/bram/heartassisted-therapy/hat 1 bun 1128 0
