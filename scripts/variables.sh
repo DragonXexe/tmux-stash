@@ -1,5 +1,5 @@
 
-STASH_PATH="~/.local/share/tmux/tmux-stash"
+STASH_PATH="$HOME/.local/share/tmux/tmux-stash"
 delimiter=" "
 
 
