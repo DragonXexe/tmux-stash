@@ -23,7 +23,6 @@ if [[ "$1" == "--list" ]]; then
         done | sort -u
     exit 0
 fi
-exit 1
 set -e
 
 $pop_command $1
