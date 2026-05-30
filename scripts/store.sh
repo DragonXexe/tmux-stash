@@ -77,7 +77,11 @@ window_format() {
 }
 
 # Get all the session from tmux
-mapfile -t SESSIONS < <(tmux list-sessions -F "#{session_name}")
+if [ $# -lt 1 ]; then
+    mapfile -t SESSIONS < <(tmux list-sessions -F "#{session_name}")
+else
+    SESSIONS=("$@")
+fi
 
 echo ${SESSIONS[@]}
 
