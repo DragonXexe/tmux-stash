@@ -25,7 +25,9 @@ pop_session() {
 
     for line in "${items[@]}"; do
         if [[ $line == "window"* ]]; then
-            create_complete_window $line
+            local split_line
+            IFS="$delimiter" read -ra split_line <<< "$line"
+            create_complete_window "${split_line[@]}"
         fi
     done
 }
@@ -41,7 +43,9 @@ create_complete_window() {
     for line in "${SESSION_LINES[@]}"; do
         local expected_prefix="pane${delimiter}${session_name}${delimiter}${window_index}"
         if [[ $line == "${expected_prefix}"* ]]; then
-            create_pane $line
+            local split_line
+            IFS="$delimiter" read -ra split_line <<< "$line"
+            create_pane "${split_line[@]}"
         fi
     done
     apply_window_layout $@
@@ -55,7 +59,14 @@ create_new_window() {
     local window_flags=${6#:}
     local window_layout=$7
     echo "Creating window $session_name:$window_name"
-    tmux new-window -t "$session_name:$window_index" -n $window_name
+    echo "DEBUG windows before create: $(tmux list-windows -t $session_name)" >&2
+    local base_index
+    base_index=$(tmux show-option -gv base-index)
+    if [[ $window_index == $base_index ]]; then
+        tmux rename-window -t "$session_name:$window_index" "$window_name"
+    else
+        tmux new-window -t "$session_name:$window_index" -n "$window_name"
+    fi
 }
 
 create_pane() {
@@ -70,13 +81,15 @@ create_pane() {
     local pane_current_command=$9
     local pane_pid=${10}
     local history_size=${11}
+    local pane_full_command=${12}
     echo "Creating pane $session_name:$pane_index"
     if [[ "$pane_index" != 0 ]]; then
         tmux select-layout -t "${session_name}:${window_index}" tiled
         tmux split-window -t $session_name:$window_index -l $history_size -c $pane_current_path
     else
-            tmux respawn-pane -k -t "$session_name:$window_index.$pane_index" -c "$pane_current_path"
+        tmux respawn-pane -k -t "$session_name:$window_index.$pane_index" -c "$pane_current_path"
     fi
+    tmux send-keys -t "$session_name:$window_index.$pane_index" "$pane_full_command" $(is_allowed_to_execute $pane_full_command)
 }
 apply_window_layout() {
     local session_name=$2
