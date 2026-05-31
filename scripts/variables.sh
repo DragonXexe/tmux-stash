@@ -1,6 +1,5 @@
 
-# STASH_PATH="$HOME/.local/share/tmux/tmux-stash"
-STASH_PATH="$HOME/Projects/tmux-stash/stash"
+STASH_PATH="$HOME/.local/share/tmux/tmux-stash"
 delimiter=$'\u001F'
 
 RESTORABLE_COMMANDS="$(tmux show-option -gv @tmux-stash-restoreable-commands)"
