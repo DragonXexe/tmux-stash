@@ -59,6 +59,7 @@ create_new_window() {
     local window_flags=${6#:}
     local window_layout=$7
     echo "Creating window $session_name:$window_name"
+
     local base_index
     base_index=$(tmux show-option -gv base-index)
     if [[ $window_index == $base_index ]]; then
@@ -81,7 +82,10 @@ create_pane() {
     local history_size=${11}
     local pane_full_command=${12}
     echo "Creating pane $session_name:$pane_index with command: $pane_full_command"
-    if [[ "$pane_index" != 0 ]]; then
+
+    local pane_base_index
+    pane_base_index=$(tmux show-option -gv pane-base-index)
+    if [[ "$pane_index" != "$pane_base_index" ]]; then
         tmux select-layout -t "${session_name}:${window_index}" tiled
         tmux split-window -t $session_name:$window_index -l $history_size -c $pane_current_path
     else
