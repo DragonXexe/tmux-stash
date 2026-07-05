@@ -12,7 +12,7 @@ SESSION_LINES=""
 
 # This will pop a session passed in $1
 pop_session() {
-    tmux has-session -t my_session 2>/dev/null
+    tmux has-session -t $1 2>/dev/null
     if [ $? -eq 0 ]; then
         echo "Session already exists"
         echo "Attaching to session.."
