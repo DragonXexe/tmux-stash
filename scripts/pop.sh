@@ -12,6 +12,13 @@ SESSION_LINES=""
 
 # This will pop a session passed in $1
 pop_session() {
+    tmux has-session -t my_session 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Session already exists"
+        echo "Attaching to session.."
+        tmux a -t $1
+        return
+    fi
     # Get the last stash
     local last_path=$(readlink "$STASH_PATH/$1_last")
     # Recover
